@@ -19,7 +19,7 @@
 ✔ The project must have the these classes: `Employee`, `Manager`, `Engineer`,`Intern`. @done (7/3/2020, 2:44:16 PM)
     ☐ The tests for these classes in the `tests` directory must all pass.
 
-☐ The first class is an `Employee` parent class with the following properties and methods:
+✔ The first class is an `Employee` parent class with the following properties and methods: @done (7/3/2020, 3:15:51 PM)
 
   * name
   * id
@@ -29,15 +29,15 @@
   * getEmail()
   * getRole() // Returns 'Employee'
 
-☐ The other three classes will extend `Employee`.
+✔ The other three classes will extend `Employee`. @done (7/3/2020, 3:15:56 PM)
 
-☐ In addition to `Employee`'s properties and methods, `Manager` will also have:
+✔ In addition to `Employee`'s properties and methods, `Manager` will also have: @done (7/3/2020, 3:15:59 PM)
 
   * officeNumber
 
   * getRole() // Overridden to return 'Manager'
 
-☐ In addition to `Employee`'s properties and methods, `Engineer` will also have:
+✔ In addition to `Employee`'s properties and methods, `Engineer` will also have: @done (7/3/2020, 3:16:04 PM)
 
   * github  // GitHub username
 
@@ -45,7 +45,7 @@
 
   * getRole() // Overridden to return 'Engineer'
 
-☐ In addition to `Employee`'s properties and methods, `Intern` will also have:
+✔ In addition to `Employee`'s properties and methods, `Intern` will also have: @done (7/3/2020, 3:16:06 PM)
 
   * school 
 
