@@ -5,3 +5,7 @@
 .card-header {
     background-color: rgb(155, 134, 175);
 }
+.card {
+    margin-left: 25px;
+    margin-right: 25px;
+}
