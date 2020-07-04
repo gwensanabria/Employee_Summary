@@ -32,7 +32,7 @@ const renderManager = manager => {
   template = replacePlaceholders(template, "role", manager.getRole());
   template = replacePlaceholders(template, "email", manager.getEmail());
   template = replacePlaceholders(template, "id", manager.getId());
-  template = replacePlaceholders(template, "officeNum", manager.getOfficeNum());
+  template = replacePlaceholders(template, "officeNum", manager.getOfficeNumber());
   return template;
 };
 
