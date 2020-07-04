@@ -10,6 +10,125 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+const team = []
+
+function managerInput () {
+    inquirer.prompt ([
+        {
+            type: 'input',
+            name: 'name',
+            message: "Manager's name?",
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: "Manager's ID Number?",
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "Manager's Email?",
+        },
+        {
+            type: 'input',
+            name: 'officeNum',
+            message: "Manager's office Number?",
+        },
+    ]).then(response => {
+        const manager = new Manager(response.name, parseInt(response.id), response.email, parseInt(response.officeNum))
+        team.push(manager)
+        addTeamMember()
+    })
+}
+
+function addTeamMember() {
+    inquirer.prompt([
+        {
+            type:'list' ,
+            name: 'type',
+            message: 'What team member role would you like to add?',
+            choices: [
+                'Engineer',
+                'Intern',
+                'Done'
+            ]
+        }
+    ]).then(response => {
+        if(response.type === 'Engineer') {
+            addEngineer()
+        } else if (response.type === 'Intern') {
+            addIntern()
+        } else {
+            render (team)
+        }
+    })
+}
+
+function addEngineer() {
+    inquirer.prompt([
+        {
+            type:'input' ,
+            name: 'name',
+            message: "Engineer's Name?",
+        },
+
+        {
+            type:'input' ,
+            name: 'id',
+            message: "Engineer's ID?",
+        },
+
+        {
+            type:'input' ,
+            name: 'email',
+            message: "Engineer's email?",
+        },
+
+        {
+            type:'input' ,
+            name: 'github',
+            message: "Engineer's Github?",
+        }
+    ]).then(response => {
+        const engineer = new Engineer(response.name, parseInt(response.id), response.email, response.github)
+        team.push(engineer)
+        addTeamMember()
+    })
+}
+
+function addIntern() {
+    inquirer.prompt([
+        {
+            type:'input' ,
+            name: 'name',
+            message: "Intern's Name?",
+        },
+
+        {
+            type:'input' ,
+            name: 'id',
+            message: "Intern's ID?",
+        },
+
+        {
+            type:'input' ,
+            name: 'email',
+            message: "Intern's email?",
+        },
+
+        {
+            type:'input' ,
+            name: 'school',
+            message: "Intern's school?",
+        }
+    ]).then(response => {
+        const intern = new Intern(response.name, parseInt(response.id), response.email, response.school)
+        team.push(intern)
+        addTeamMember()
+    })
+}
+
+managerInput()
 
 
 

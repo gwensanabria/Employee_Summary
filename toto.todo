@@ -10,7 +10,7 @@
 
 ☐ Create multiple HTML templates for each type of user. For example, you could use the following templates: `main.html`, `engineer.html`, `intern.html`, `manager.html`
 ☐ You will want to make your methods as pure as possible. This means try to make your methods simple so that they are easier to test.
-☐ The different employee types should all inherit some methods and properties from a base class of `Employee`.
+✔ The different employee types should all inherit some methods and properties from a base class of `Employee`. @done (7/3/2020, 10:20:33 PM)
 ☐ In your HTML template files, you may want to add a placeholder character that helps your program identify where the dynamic markup begins and ends.
 
 
