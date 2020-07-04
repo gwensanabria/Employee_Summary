@@ -1,21 +1,24 @@
 const path = require("path");
 const fs = require("fs");
+// const app = require("./app")
+// const employees = app.employees
 
 const templatesDir = path.resolve(__dirname, "../templates");
+
 
 const render = employees => {
   const html = [];
 
   html.push(employees
-    .filter(employee => employee.getRole() === "Manager")
+    .filter(employees => employees.getRole() === "Manager")
     .map(manager => renderManager(manager))
   );
   html.push(employees
-    .filter(employee => employee.getRole() === "Engineer")
+    .filter(employees => employees.getRole() === "Engineer")
     .map(engineer => renderEngineer(engineer))
   );
   html.push(employees
-    .filter(employee => employee.getRole() === "Intern")
+    .filter(employees => employees.getRole() === "Intern")
     .map(intern => renderIntern(intern))
   );
 
@@ -29,7 +32,7 @@ const renderManager = manager => {
   template = replacePlaceholders(template, "role", manager.getRole());
   template = replacePlaceholders(template, "email", manager.getEmail());
   template = replacePlaceholders(template, "id", manager.getId());
-  template = replacePlaceholders(template, "officeNumber", manager.getOfficeNumber());
+  template = replacePlaceholders(template, "officeNum", manager.getOfficeNum());
   return template;
 };
 
@@ -55,7 +58,9 @@ const renderIntern = intern => {
 
 const renderMain = html => {
   const template = fs.readFileSync(path.resolve(templatesDir, "main.html"), "utf8");
-  return replacePlaceholders(template, "team", html);
+  const indexHTML = replacePlaceholders(template, 'team', html)
+  const file = path.join('index.html')
+  fs.writeFileSync(file, indexHTML)
 };
 
 const replacePlaceholders = (template, placeholder, value) => {

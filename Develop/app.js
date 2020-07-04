@@ -10,7 +10,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-const team = []
+let employees = []
 
 function managerInput () {
     inquirer.prompt ([
@@ -36,7 +36,7 @@ function managerInput () {
         },
     ]).then(response => {
         const manager = new Manager(response.name, parseInt(response.id), response.email, parseInt(response.officeNum))
-        team.push(manager)
+        employees.push(manager)
         addTeamMember()
     })
 }
@@ -59,7 +59,7 @@ function addTeamMember() {
         } else if (response.type === 'Intern') {
             addIntern()
         } else {
-            render (team)
+            render (employees)
         }
     })
 }
@@ -91,7 +91,7 @@ function addEngineer() {
         }
     ]).then(response => {
         const engineer = new Engineer(response.name, parseInt(response.id), response.email, response.github)
-        team.push(engineer)
+        employees.push(engineer)
         addTeamMember()
     })
 }
@@ -123,7 +123,7 @@ function addIntern() {
         }
     ]).then(response => {
         const intern = new Intern(response.name, parseInt(response.id), response.email, response.school)
-        team.push(intern)
+        employees.push(intern)
         addTeamMember()
     })
 }
