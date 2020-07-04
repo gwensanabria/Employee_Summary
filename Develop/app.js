@@ -31,11 +31,11 @@ function managerInput () {
         },
         {
             type: 'input',
-            name: 'officeNum',
+            name: 'officeNumber',
             message: "Manager's office Number?",
         },
     ]).then(response => {
-        const manager = new Manager(response.name, parseInt(response.id), response.email, parseInt(response.officeNum))
+        const manager = new Manager(response.name, parseInt(response.id), response.email, parseInt(response.officeNumber))
         employees.push(manager)
         addTeamMember()
     })
